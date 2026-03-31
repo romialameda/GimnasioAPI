@@ -1,4 +1,4 @@
-# API_GIMNASIOS
+# GimnasioAPI
 Trabajo Practico del Curso de C# - PROFESOR: ● Genaro Rafael Bergesio COORDINADOR: ● Octavio Felix Cavalleris Malanca SECRETARIO SAE: ● Exequiel Carranza
 
 ### 📚 Descripcion 
