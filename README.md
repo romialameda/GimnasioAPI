@@ -1,6 +1,13 @@
 # API_GIMNASIOS
 Trabajo Practico del Curso de C# - PROFESOR: ● Genaro Rafael Bergesio COORDINADOR: ● Octavio Felix Cavalleris Malanca SECRETARIO SAE: ● Exequiel Carranza
 
+### 📚 Descripcion 
+Desarrollar un controlador el cual permita dar de alta los diferentes gimnasios que existan en
+las regiones. Los mismos deben tener los datos: id, nombre de la ciudad donde está ubicado, id
+region, fecha de creación del gimnasio, nombre del líder, gimnasio activo y el nombre de la medalla.
+También debe ser posible modificarlos, consultarlos y darlos de baja lógicamente (atributo gimnasio
+activo).
+
 ### 🗂️ Estructura de la tabla
 
 | Nombre Atributo  | Tipo                |
