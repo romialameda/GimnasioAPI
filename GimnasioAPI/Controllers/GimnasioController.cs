@@ -118,6 +118,37 @@ namespace GimnasioAPI.Controllers
             catch (Exception ex) { return StatusCode(500, "Error interno del servidor: " + ex.Message); }
         }
 
+        [HttpPost]
+        [ActionName("CargarGimnasio")]
+        public ActionResult<Gimnasio> CargarGimnasio([FromBody] Gimnasio nuevoGimnasio)
+        {
+            GeneralAdapterSQL consultor = new GeneralAdapterSQL();
+            DataTable respuesta = consultor.EjecutarProcedimiento("CargarGimnasio", new Dictionary<string, object>
+                { { "@ciudad_gimnasio", nuevoGimnasio.ciudad_gimnasio},
+                  { "@id_region", nuevoGimnasio.id_region },
+                  { "@fecha_alta", nuevoGimnasio.fecha_alta },
+                  { "@entrenador_lider", nuevoGimnasio.entrenador_lider },
+                  { "@gimnasio_activo", nuevoGimnasio.gimnasio_activo },
+                  { "@nombre_medalla", nuevoGimnasio.nombre_medalla}
 
+            });
+
+            try { 
+                if (respuesta.Rows.Count > 0)
+                {
+                    if (respuesta.Rows.ToString()?.Trim() == "ERROR") return Conflict("Error en la base de datos");
+                    else
+                    {
+                        Gimnasio gimnasioCreado = new Gimnasio(respuesta.Rows[0]);
+                        return Created("Gimnasio creado: ", gimnasioCreado);
+                    }
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception ex) { return StatusCode(500, "Error interno del servidor: " + ex.Message); }
+        }
     }
 }
